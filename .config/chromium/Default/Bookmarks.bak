@@ -1,0 +1,66 @@
+{
+   "checksum": "124511a4ff3f92592e57f8e12472f36e",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13225930472403797",
+            "id": "5",
+            "name": "Flask â SQLite - Tutorialspoint",
+            "type": "url",
+            "url": "https://www.tutorialspoint.com/flask/flask_sqlite.htm"
+         }, {
+            "date_added": "13225930490426326",
+            "id": "6",
+            "name": "11.13. sqlite3 — DB-API 2.0 interface for SQLite databases — Python 2.7.17 documentation",
+            "type": "url",
+            "url": "https://docs.python.org/2/library/sqlite3.html"
+         }, {
+            "date_added": "13225930497159854",
+            "id": "7",
+            "name": "SQLite Database on a Raspberry Pi | Random Nerd Tutorials",
+            "type": "url",
+            "url": "https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/"
+         }, {
+            "date_added": "13225930541608068",
+            "id": "8",
+            "name": "A SQLite Tutorial with Python",
+            "type": "url",
+            "url": "https://stackabuse.com/a-sqlite-tutorial-with-python/"
+         }, {
+            "date_added": "13225930553491312",
+            "id": "9",
+            "name": "Python SQLite tutorial [Complete Guide]",
+            "type": "url",
+            "url": "https://pynative.com/python-sqlite/"
+         }, {
+            "date_added": "13225930676407380",
+            "id": "10",
+            "name": "127.0.0.1:5000/list",
+            "type": "url",
+            "url": "http://127.0.0.1:5000/list"
+         } ],
+         "date_added": "13225922619712784",
+         "date_modified": "13225930676407380",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13225922619712794",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13225922619712797",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

@@ -1,0 +1,75 @@
+{
+   "checksum": "124511a4ff3f92592e57f8e12472f36e",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13225930472403797",
+            "guid": "b3d8c867-83f7-4248-b65d-ca8eea1a1d00",
+            "id": "5",
+            "name": "Flask â SQLite - Tutorialspoint",
+            "type": "url",
+            "url": "https://www.tutorialspoint.com/flask/flask_sqlite.htm"
+         }, {
+            "date_added": "13225930490426326",
+            "guid": "a8406b08-ef06-4af3-b019-cb894be0e2c2",
+            "id": "6",
+            "name": "11.13. sqlite3 — DB-API 2.0 interface for SQLite databases — Python 2.7.17 documentation",
+            "type": "url",
+            "url": "https://docs.python.org/2/library/sqlite3.html"
+         }, {
+            "date_added": "13225930497159854",
+            "guid": "d5b1a148-2d39-4bb8-a9c9-9506186be6f3",
+            "id": "7",
+            "name": "SQLite Database on a Raspberry Pi | Random Nerd Tutorials",
+            "type": "url",
+            "url": "https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/"
+         }, {
+            "date_added": "13225930541608068",
+            "guid": "fe88cdd7-5359-4e4c-bfb9-c56c063c37bb",
+            "id": "8",
+            "name": "A SQLite Tutorial with Python",
+            "type": "url",
+            "url": "https://stackabuse.com/a-sqlite-tutorial-with-python/"
+         }, {
+            "date_added": "13225930553491312",
+            "guid": "8ce48387-7d6f-4407-9235-126d82c15056",
+            "id": "9",
+            "name": "Python SQLite tutorial [Complete Guide]",
+            "type": "url",
+            "url": "https://pynative.com/python-sqlite/"
+         }, {
+            "date_added": "13225930676407380",
+            "guid": "44910ab6-9b22-47f8-b309-1b6a82aa5902",
+            "id": "10",
+            "name": "127.0.0.1:5000/list",
+            "type": "url",
+            "url": "http://127.0.0.1:5000/list"
+         } ],
+         "date_added": "13225922619712784",
+         "date_modified": "13225930676407380",
+         "guid": "00000000-0000-4000-A000-000000000002",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13225922619712794",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-A000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13225922619712797",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-A000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

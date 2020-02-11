@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+   <body>
+      <table border = 1>
+         <thead>
+            <td>ID</td>
+            <td>Cold Water</td>
+            <td>Hot Water</td>
+            <td>Flow</td>
+            <td>Date</td>
+            <td>Time</td>
+            <td>Name</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["id"]}}</td>
+               <td>{{row["cold_water"]}}</td>
+               <td> {{ row["hot_water"]}}</td>
+               <td>{{row['flow']}}</td>	
+               <td>{{row['currentdate']}}</td>
+               <td>{{row['currenttime']}}</td>
+               <td>{{row['name']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <a href = "/">Go back to home page</a>
+   </body>
+</html>
