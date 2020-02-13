@@ -8,21 +8,20 @@ def home():
 
 @app.route('/enternew')
 def new_student():
-   return render_template('send.html')
+   return render_template('enternew.html')
 
 @app.route('/addrec',methods = ['POST', 'GET'])
 def addrec():
    if request.method == 'POST':
       try:
-         nm = request.form['nm']
-         addr = request.form['add']
-         city = request.form['city']
-         pin = request.form['pin']
+         cold = request.form['cold']
+         hot = request.form['hot']
+         flow = request.form['flow']
+         name = request.form['name']
          
-         with sql.connect("database.db") as con:
+         with sql.connect("raspsensors.db") as con:
             cur = con.cursor()
-            
-            cur.execute("INSERT INTO students (name,addr,city,pin) VALUES (?,?,?,?)",(nm,addr,city,pin) )
+            cur.execute("INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",(cold,hot,flow,name) )
             
             con.commit()
             msg = "Record successfully added"
@@ -33,7 +32,8 @@ def addrec():
       finally:
          return render_template("result.html",msg = msg)
          con.close()
-
+         
+         
 @app.route('/list')
 def list():
    con = sql.connect("raspsensors.db")
