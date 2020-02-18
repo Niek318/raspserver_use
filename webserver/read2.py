@@ -5,7 +5,6 @@ import os
 # Definieer een array (temp).
 temp = {}
 sensorids = []
-sensor()
 
 
 def sensor():  # find sensor 1
@@ -15,6 +14,8 @@ def sensor():  # find sensor 1
 
     print(i)
 
+
+sensor()
 
 # loop net zo lang alles sensors af dat in het array hieboven staan.
 
