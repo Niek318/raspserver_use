@@ -9,7 +9,7 @@ sensorids = []
 
 def sensor():  # find sensor 1
     for i in os.listdir("/sys/bus/w1/devices"):
-        if i != "w1_bus_master":
+        if i != "w1_bus_master1":
             sensorids.append(i)
 
 
