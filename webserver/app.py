@@ -1,49 +1,58 @@
 from flask import Flask, render_template, request
 import sqlite3 as sql
+
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route("/")
 def home():
-   return render_template('home.html')
+    return render_template("home.html")
 
-@app.route('/enternew')
+
+@app.route("/enternew")
 def new_student():
-   return render_template('enternew.html')
+    return render_template("enternew.html")
 
-@app.route('/addrec',methods = ['POST', 'GET'])
+
+@app.route("/addrec", methods=["POST", "GET"])
 def addrec():
-   if request.method == 'POST':
-      try:
-         cold = request.form['cold']
-         hot = request.form['hot']
-         flow = request.form['flow']
-         name = request.form['name']
-         
-         with sql.connect("raspsensors.db") as con:
-            cur = con.cursor()
-            cur.execute("INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",(cold,hot,flow,name) )
-            
-            con.commit()
-            msg = "Record successfully added"
-      except:
-         con.rollback()
-         msg = "error in insert operation"
-      
-      finally:
-         return render_template("result.html",msg = msg)
-         con.close()
-         
-         
-@app.route('/list')
-def list():
-   con = sql.connect("raspsensors.db")
-   con.row_factory = sql.Row
-   
-   cur = con.cursor()
-   cur.execute("select * from sensordata")
-   
-   rows = cur.fetchall();
-   return render_template("list.html",rows = rows)
+    if request.method == "POST":
+        try:
+            cold = request.form["cold"]
+            hot = request.form["hot"]
+            flow = request.form["flow"]
+            name = request.form["name"]
 
-if __name__ == '__main__':
-   app.run(debug = True)
+            with sql.connect("raspsensors.db") as con:
+                cur = con.cursor()
+                cur.execute(
+                    "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+                    (cold, hot, flow, name),
+                )
+
+                con.commit()
+                msg = "Record successfully added"
+        except:
+            con.rollback()
+            msg = "error in insert operation"
+
+        finally:
+            return render_template("result.html", msg=msg)
+            con.close()
+
+
+@app.route("/list")
+def list():
+    con = sql.connect("raspsensors.db")
+    con.row_factory = sql.Row
+
+    cur = con.cursor()
+    cur.execute("select * from sensordata")
+
+    rows = cur.fetchall()
+    return render_template("list.html", rows=rows)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
