@@ -21,10 +21,10 @@ sensor()
 
 while True:
 
-    for sensor in range(len(sensorids)):
+    for sensor in sensorids:
         # tfile = open("/sys/bus/w1/devices/"+ sensorids[sensor] +"/w1_slave") #RPi 1,2 met oude kernel.
         tfile = open(
-            "/sys/bus/w1/devices/" + sensorids + "/w1_slave"
+            "/sys/bus/w1/devices/" + sensor + "/w1_slave"
         )  # RPi 2,3 met nieuwe kernel.
         # Lees alle dat uit het "bestand" in een variabele.
         text = tfile.read()
