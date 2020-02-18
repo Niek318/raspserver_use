@@ -1,25 +1,30 @@
 # Importeer bibliotheek voor systeemfuncties.
 import sys
 import os
+
 # Definieer een array (temp).
 temp = {}
+sensorids = []
+sensor()
 
-def sensor(): #find sensor 1
+
+def sensor():  # find sensor 1
     for i in os.listdir("/sys/bus/w1/devices"):
         if i != "w1_bus_master":
-            ds18b20 = i
-            
-    print(ds18b20)
-    return ds18b20
+            sensorids.append(i)
 
-sensorids = sensor()
+    print(i)
+
+
 # loop net zo lang alles sensors af dat in het array hieboven staan.
 
 while True:
 
     for sensor in range(len(sensorids)):
-  #tfile = open("/sys/bus/w1/devices/"+ sensorids[sensor] +"/w1_slave") #RPi 1,2 met oude kernel.
-        tfile = open("/sys/bus/w1/devices/"+ sensorids +"/w1_slave") #RPi 2,3 met nieuwe kernel.
+        # tfile = open("/sys/bus/w1/devices/"+ sensorids[sensor] +"/w1_slave") #RPi 1,2 met oude kernel.
+        tfile = open(
+            "/sys/bus/w1/devices/" + sensorids + "/w1_slave"
+        )  # RPi 2,3 met nieuwe kernel.
         # Lees alle dat uit het "bestand" in een variabele.
         text = tfile.read()
         # Sluit het "bestand" nadat we het gelezen hebben.
@@ -36,4 +41,4 @@ while True:
         # De temperatuurwaarde moeten we delen door 1000 voor de juiste waarde.
         temp[sensor] = temperature / 1000
         # print de gegevens naar de console.
-        print "sensor", sensor, "=", temp[sensor], "graden."
+        print("sensor", sensor, "=", temp[sensor], "graden.")
