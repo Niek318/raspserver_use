@@ -2,6 +2,7 @@
 import sys
 import os
 import sqlite3 as sql
+import threading
 
 # Definieer een array (temp).
 temp = {}
@@ -18,7 +19,10 @@ sensor()
 print(sensorids)
 # loop net zo lang alles sensors af dat in het array hieboven staan.
 
-while True:
+
+def read_sensor():
+
+    threading.Timer(5.0, read_sensor).start()
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 
@@ -45,6 +49,19 @@ while True:
 
     print(cold_temp, hot_temp)
 
+
+while True:
+    read_sensor()
+
+    # with sql.connect("raspsensors.db") as con:
+    # cur = con.cursor()
+    # cur.execute(
+    #     "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+    #         (temp[sensor], temp[sensor], 1, "testname"),
+    #     )
+
+    # con.commit()
+
     # for sensor in sensorids:
     #     # tfile = open("/sys/bus/w1/devices/"+ sensorids[sensor] +"/w1_slave") #RPi 1,2 met oude kernel.
     #     tfile = open(
@@ -69,11 +86,3 @@ while True:
     #     # print de gegevens naar de console.
     #     print "sensor", sensor, "=", temp[sensor], "graden."
 
-    #     with sql.connect("raspsensors.db") as con:
-    #         cur = con.cursor()
-    #         cur.execute(
-    #             "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-    #                 (temp[sensor], temp[sensor], 1, "testname"),
-    #             )
-
-    #         con.commit()
