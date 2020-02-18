@@ -1,6 +1,7 @@
 # Importeer bibliotheek voor systeemfuncties.
 import sys
 import os
+import sqlite3 as sql
 
 # Definieer een array (temp).
 temp = {}
@@ -41,3 +42,13 @@ while True:
         temp[sensor] = temperature / 1000
         # print de gegevens naar de console.
         print "sensor", sensor, "=", temp[sensor], "graden."
+
+
+        with sql.connect("raspsensors.db") as con:
+            cur = con.cursor()
+            cur.execute(
+                "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+                    (cold, hot, flow, name),
+                )
+
+            con.commit()
