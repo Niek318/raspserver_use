@@ -35,7 +35,7 @@ while True:
     text2 = tfile2.read()
     tfile2.close()
 
-    secondline = text.split("\n")[1]
+    secondline = text2.split("\n")[1]
     temperaturedata = secondline.split(" ")[9]
     temperature2 = float(temperaturedata[2:])
     temperature2 = temperature2 / 1000
