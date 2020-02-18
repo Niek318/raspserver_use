@@ -3,6 +3,7 @@ import sys
 import os
 import sqlite3 as sql
 import threading
+from time import gmtime, strftime
 
 # Definieer een array (temp).
 temp = {}
@@ -47,7 +48,7 @@ def read_sensor():
     cold_temp = min(temperature, temperature2)
     hot_temp = max(temperature, temperature2)
 
-    print(cold_temp, hot_temp)
+    print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
 
 read_sensor()
