@@ -48,7 +48,7 @@ while True:
             cur = con.cursor()
             cur.execute(
                 "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-                    (cold, hot, flow, name),
+                    (temp[sensor], temp[sensor], 1, "testname"),
                 )
 
             con.commit()
