@@ -22,6 +22,8 @@ print(sensorids)
 
 def read_sensor():
 
+    threading.Timer(5.0, read_sensor).start()
+
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 
     tfile2 = open("/sys/bus/w1/devices/" + sensorids[1] + "/w1_slave")
@@ -49,7 +51,7 @@ def read_sensor():
 
 
 while True:
-    threading.Timer(5.0, read_sensor).start()
+    read_sensor()
 
     # with sql.connect("raspsensors.db") as con:
     # cur = con.cursor()
