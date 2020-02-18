@@ -40,7 +40,10 @@ while True:
     temperature2 = float(temperaturedata[2:])
     temperature2 = temperature2 / 1000
 
-    print(temperature, temperature2)
+    cold_temp = min(temperature, temperature2)
+    hot_temp = max(temperature, temperature2)
+
+    print(cold_temp, hot_temp)
 
     # for sensor in sensorids:
     #     # tfile = open("/sys/bus/w1/devices/"+ sensorids[sensor] +"/w1_slave") #RPi 1,2 met oude kernel.
