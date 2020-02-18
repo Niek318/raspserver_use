@@ -4,11 +4,15 @@ import os
 # Definieer een array (temp).
 temp = {}
 
-path = "/sys/bus/w1/devices/"
-print(os.listdir(path))
+def sensor(): #find sensor 1
+    for i in os.listdir("/sys/bus/w1/devices"):
+        if i != "w1_bus_master":
+            ds18b20 = i
+            
+    print(ds18b20)
+    return ds18b20
 
-
-sensorids = ["28-011928e3ddaa"]
+sensorids = sensor()
 # loop net zo lang alles sensors af dat in het array hieboven staan.
 
 while True:
