@@ -40,4 +40,4 @@ while True:
         # De temperatuurwaarde moeten we delen door 1000 voor de juiste waarde.
         temp[sensor] = temperature / 1000
         # print de gegevens naar de console.
-        print("sensor", sensor, "=", temp[sensor], "graden.")
+        print "sensor", sensor, "=", temp[sensor], "graden."
