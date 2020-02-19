@@ -8,8 +8,6 @@ from time import gmtime, strftime
 temp = {}
 sensorids = []
 
-i = 0
-
 
 def sensor():  # find sensors
     for i in os.listdir("/sys/bus/w1/devices"):
@@ -21,11 +19,6 @@ def read_sensor():
 
     t = threading.Timer(5.0, read_sensor)
     t.start()
-
-    if i is 5:
-        t.cancel()
-
-    i = i + 1
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 
