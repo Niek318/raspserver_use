@@ -15,10 +15,6 @@ def sensor():  # find sensors
             sensorids.append(i)
 
 
-sensor()
-print(sensorids)
-
-
 def read_sensor():
 
     threading.Timer(5.0, read_sensor).start()
@@ -58,5 +54,7 @@ def read_sensor():
         con.commit()
 
 
-read_sensor()
-
+if __name__ == "__main__":
+    sensor()
+    print(sensorids)
+    read_sensor()
