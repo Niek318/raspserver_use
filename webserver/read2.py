@@ -48,15 +48,15 @@ def read_sensor():
 
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
+    with sql.connect("raspsensors.db") as con:
+        cur = con.cursor()
+        cur.execute(
+            "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+            (temp[sensor], temp[sensor], 1, "testname"),
+        )
+
+        con.commit()
+
 
 read_sensor()
-
-# with sql.connect("raspsensors.db") as con:
-# cur = con.cursor()
-# cur.execute(
-#     "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-#         (temp[sensor], temp[sensor], 1, "testname"),
-#     )
-
-# con.commit()
 
