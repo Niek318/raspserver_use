@@ -8,14 +8,13 @@ from time import gmtime, strftime
 temp = {}
 sensorids = []
 
+i = 0
+
 
 def sensor():  # find sensors
     for i in os.listdir("/sys/bus/w1/devices"):
         if i != "w1_bus_master1":
             sensorids.append(i)
-
-
-i = 0
 
 
 def read_sensor():
