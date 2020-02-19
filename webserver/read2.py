@@ -15,9 +15,18 @@ def sensor():  # find sensors
             sensorids.append(i)
 
 
+i = 0
+
+
 def read_sensor():
 
-    threading.Timer(5.0, read_sensor).start()
+    t = threading.Timer(5.0, read_sensor)
+    t.start()
+
+    if i is 5:
+        t.cancel()
+
+    i = i + 1
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 
