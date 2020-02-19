@@ -17,7 +17,7 @@ def sensor():  # find sensors
 
 def read_sensor():
 
-    t = threading.Timer(5.0, read_sensor)
+    t = threading.Timer(1800, read_sensor)
     t.start()
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
