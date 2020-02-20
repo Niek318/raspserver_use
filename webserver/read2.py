@@ -4,7 +4,7 @@ import sqlite3 as sql
 import threading
 from time import gmtime, strftime
 
-
+flow = 5  # temp value
 temp = {}
 sensorids = []
 
@@ -17,7 +17,7 @@ def sensor():  # find sensors
 
 def read_sensor():
 
-    t = threading.Timer(1800, read_sensor)
+    t = threading.Timer(1, read_sensor)
     t.start()
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
