@@ -66,10 +66,12 @@ def read_sensor():
 if __name__ == "__main__":
     sensor()
     print(sensorids)
+    print('works')
     t = Timer(10,read_sensor)
-
+    print("thread on")
     button.wait_for_press()
     button.wait_for_release()
+    print("start thread")
 
     time.sleep(5)
 
