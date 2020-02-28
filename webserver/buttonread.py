@@ -7,7 +7,7 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
-from statistics import mean
+import statistics
 
 
 
@@ -92,7 +92,7 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         
-        print(mean(hot_list), mean(cold_list), mean(flow_list))
+        print(statistics.mean(hot_list), statistics.mean(cold_list), statistics.mean(flow_list))
         time.sleep(4)
 
         
