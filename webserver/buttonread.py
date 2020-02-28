@@ -70,10 +70,10 @@ if __name__ == "__main__":
     print(sensorids)
     showertime = 0
     while True:
-        hot_list.clear()
-        cold_list.clear()
-        flow_list.clear()
-        
+        hot_list = []
+        cold_list = []
+        flow_list = []
+
         start = time.time()
         button.wait_for_press()
         button.wait_for_release()
