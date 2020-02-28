@@ -78,6 +78,6 @@ if __name__ == "__main__":
         
         button.wait_for_press()
         button.wait_for_release()
-        print(f"stopped measuring, showertime = {math.floor(showertime/60)} minutes and {showertime%60} seconds")
+        print(f"stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(showertime/60), showertime%60))
 
         
