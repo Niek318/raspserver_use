@@ -81,7 +81,7 @@ if __name__ == "__main__":
         start = time.time()
         button.wait_for_press()
         button.wait_for_release()
-        time.sleep(2)
+
 
         while not button.is_pressed:
             read_sensor()
@@ -95,5 +95,6 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         print(Average(hot_list), Average(cold_list), Average(flow_list))
+        time.sleep(4)
 
         
