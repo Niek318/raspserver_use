@@ -14,9 +14,9 @@ flow = 5.0  # temp value
 temp = {}
 sensorids = []
 
-cold_list = []
-hot_list = []
-flow_list = []
+cold_list = [1]
+hot_list = [1]
+flow_list = [1]
 
 
 def sensor():  # find sensors
@@ -74,10 +74,6 @@ if __name__ == "__main__":
     print(sensorids)
     showertime = 0
     while True:
-        hot_list = []
-        cold_list = []
-        flow_list = []
-
         start = time.time()
         button.wait_for_press()
         button.wait_for_release()
@@ -94,7 +90,7 @@ if __name__ == "__main__":
         end = time.time()
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
-        print(Average(hot_list), Average(cold_list), Average(flow_list))
+        print(hot_list, cold_list, flow_list)
         time.sleep(4)
 
         
