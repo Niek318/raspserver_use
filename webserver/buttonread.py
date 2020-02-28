@@ -66,6 +66,7 @@ if __name__ == "__main__":
     print(sensorids)
     showertime = 0
     while True:
+        start = time.time()
         button.wait_for_press()
         button.wait_for_release()
         time.sleep(2)
@@ -73,11 +74,13 @@ if __name__ == "__main__":
         while not button.is_pressed:
             read_sensor()
             time.sleep(1)
-            showertime = showertime + 1
+  
 
         
         button.wait_for_press()
         button.wait_for_release()
-        print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(showertime/60), showertime%60))
+        end = time.time()
+        elapsed = end - start
+        print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
 
         
