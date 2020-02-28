@@ -96,7 +96,7 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         #values should be float not int
-        print("average values of cold temp: %f, hot temp: %f and flow: %f."% (round(Average(cold_list), 2), round(Average(hot_list), 2), round(Average(flow_list), 2)))
+        print("average values of cold temp: %f, hot temp: %f and flow: %f."% (Average(cold_list), Average(hot_list), Average(flow_list)))
         time.sleep(4)
 
         
