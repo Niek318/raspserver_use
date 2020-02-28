@@ -2,11 +2,19 @@ import sys
 import os
 import sqlite3 as sql
 import threading
+from threading import Timer
+import time
 from time import gmtime, strftime
+from gpiozero import Button
 
+button = Button(2) 
 flow = 5  # temp value
 temp = {}
 sensorids = []
+
+cold_list = []
+hot_list = []
+flow_list = []
 
 
 def sensor():  # find sensors
@@ -58,4 +66,17 @@ def read_sensor():
 if __name__ == "__main__":
     sensor()
     print(sensorids)
+    t = Timer(10,read_sensor)
+
+    button.wait_for_press()
+    button.wait_for_release()
+
+    time.sleep(5)
+
+    t.start()
+    
+    button.wait_for_press()
+    button.wait_for_release()
+
+    t.cancel()
     read_sensor()
