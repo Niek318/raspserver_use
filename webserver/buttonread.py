@@ -69,7 +69,7 @@ if __name__ == "__main__":
         button.wait_for_release()
         time.sleep(2)
 
-        while not button.is_pressed():
+        while not button.is_pressed:
             read_sensor()
             time.sleep(1)
             showertime = showertime + 1
