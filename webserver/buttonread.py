@@ -7,7 +7,7 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
-import statistics
+from statistics import mean
 
 
 
@@ -53,7 +53,7 @@ def read_sensor():
     hot_temp = max(temperature, temperature2)
 
     cold_list.append(cold_temp)
-    hot_list.append(hot_list)
+    hot_list.append(hot_temp)
     flow_list.append(flow)
 
   
@@ -92,7 +92,7 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         
-        print(statistics.mean(hot_list), statistics.mean(cold_list), statistics.mean(flow_list))
+        print(mean(hot_list), mean(cold_list), mean(flow_list))
         time.sleep(4)
 
         
