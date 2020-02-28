@@ -7,6 +7,7 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
+from numpy import mean
 
 button = Button(17) 
 flow = 5  # temp value
@@ -90,6 +91,6 @@ if __name__ == "__main__":
         end = time.time()
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
-        print(hot_list, cold_list, flow_list)
+        print(mean(hot_list), mean(cold_list), mean(flow_list))
 
         
