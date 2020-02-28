@@ -5,6 +5,7 @@ import threading
 from threading import Timer
 import time
 from time import gmtime, strftime
+import math
 from gpiozero import Button
 
 button = Button(17) 
@@ -50,14 +51,14 @@ def read_sensor():
 
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
-    with sql.connect("raspsensors.db") as con:
-        cur = con.cursor()
-        cur.execute(
-            "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-            (cold_temp, hot_temp, 1, "testname"),
-        )
+    # with sql.connect("raspsensors.db") as con:
+    #     cur = con.cursor()
+    #     cur.execute(
+    #         "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+    #         (cold_temp, hot_temp, 1, "testname"),
+    #     )
 
-        con.commit()
+    #     con.commit()
 
 
 if __name__ == "__main__":
@@ -77,7 +78,6 @@ if __name__ == "__main__":
         
         button.wait_for_press()
         button.wait_for_release()
-        print("stopped measuring, showertime = ")
-        print(showertime)
+        print(f"stopped measuring, showertime = {math.floor(showertime/60)} minutes and {showertime%60} seconds")
 
         
