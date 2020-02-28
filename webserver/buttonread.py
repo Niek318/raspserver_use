@@ -7,6 +7,8 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
+from statistics import mean
+
 
 
 button = Button(17) 
@@ -67,9 +69,6 @@ def read_sensor():
     #     con.commit()
 
 
-def Average(lst):
-    return sum(lst)/len(lst)
-
 if __name__ == "__main__":
     sensor()
     print(sensorids)
@@ -93,7 +92,7 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         
-        #print(Average(hot_list), Average(cold_list), Average(flow_list))
+        print(mean(hot_list), mean(cold_list), mean(flow_list))
         time.sleep(4)
 
         
