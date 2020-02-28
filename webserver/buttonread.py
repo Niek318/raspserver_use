@@ -63,19 +63,21 @@ def read_sensor():
 if __name__ == "__main__":
     sensor()
     print(sensorids)
-    print('works')
-    t = Timer(1,read_sensor)
-    print("thread on")
-    button.wait_for_press()
-    button.wait_for_release()
-    print("start thread")
+    showertime = 0
+    while True:
+        button.wait_for_press()
+        button.wait_for_release()
+        time.sleep(2)
 
-    time.sleep(2)
+        while not button.is_pressed():
+            read_sensor()
+            time.sleep(1)
+            showertime = showertime + 1
 
-    t.start()
-    
-    button.wait_for_press()
-    button.wait_for_release()
+        
+        button.wait_for_press()
+        button.wait_for_release()
+        print("stopped measuring, showertime = ")
+        print(showertime)
 
-    t.cancel()
-    read_sensor()
+        
