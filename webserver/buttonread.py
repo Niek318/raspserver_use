@@ -10,7 +10,7 @@ from gpiozero import Button
 
 
 button = Button(17) 
-flow = 5  # temp value
+flow = 5.0  # temp value
 temp = {}
 sensorids = []
 
