@@ -25,9 +25,6 @@ def sensor():  # find sensors
 
 def read_sensor():
 
-    t = threading.Timer(1, read_sensor)
-    t.start()
-
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 
     tfile2 = open("/sys/bus/w1/devices/" + sensorids[1] + "/w1_slave")
@@ -67,13 +64,13 @@ if __name__ == "__main__":
     sensor()
     print(sensorids)
     print('works')
-    t = Timer(10,read_sensor)
+    t = Timer(1,read_sensor)
     print("thread on")
     button.wait_for_press()
     button.wait_for_release()
     print("start thread")
 
-    time.sleep(5)
+    time.sleep(2)
 
     t.start()
     
