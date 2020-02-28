@@ -7,7 +7,7 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
-from numpy import mean
+
 
 button = Button(17) 
 flow = 5  # temp value
