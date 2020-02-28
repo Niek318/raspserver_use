@@ -54,7 +54,7 @@ def read_sensor():
     hot_list.append(hot_list)
     flow_list.append(flow)
 
-    print(cold_temp)
+  
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     # with sql.connect("raspsensors.db") as con:
@@ -91,6 +91,7 @@ if __name__ == "__main__":
         end = time.time()
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
+        print(type(hot_list[0]))
         #print(Average(hot_list), Average(cold_list), Average(flow_list))
         time.sleep(4)
 
