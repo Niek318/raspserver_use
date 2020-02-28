@@ -25,8 +25,31 @@ def sensor():  # find sensors
     for i in os.listdir("/sys/bus/w1/devices"):
         if i != "w1_bus_master1":
             sensorids.append(i)
+    print(sensorids)
+
+def startShower():
+    while True:
+        start = time.time()
+        button.wait_for_press()
+        button.wait_for_release()
 
 
+        while not button.is_pressed:
+            read_sensor()
+            time.sleep(1)
+            type(hot_list[0])
+  
+
+        
+        button.wait_for_press()
+        button.wait_for_release()
+        end = time.time()
+        showertime = end - start
+        print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(showertime/60), showertime%60))
+        #values should be float not int
+        print("average values of cold temp: %f, hot temp: %f and flow: %f."% (Average(cold_list), Average(hot_list), Average(flow_list)))
+        time.sleep(4)
+   
 def read_sensor():
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
@@ -75,28 +98,6 @@ def Average(lst):
 
 if __name__ == "__main__":
     sensor()
-    print(sensorids)
-    showertime = 0
-    while True:
-        start = time.time()
-        button.wait_for_press()
-        button.wait_for_release()
-
-
-        while not button.is_pressed:
-            read_sensor()
-            time.sleep(1)
-            type(hot_list[0])
-  
-
-        
-        button.wait_for_press()
-        button.wait_for_release()
-        end = time.time()
-        elapsed = end - start
-        print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
-        #values should be float not int
-        print("average values of cold temp: %f, hot temp: %f and flow: %f."% (Average(cold_list), Average(hot_list), Average(flow_list)))
-        time.sleep(4)
+    startShower()
 
         
