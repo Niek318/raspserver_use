@@ -70,7 +70,8 @@ def read_sensor():
 
 
 def Average(lst): 
-    return sum(lst) / len(lst) 
+    print(sum(lst))
+    return float(sum(lst)) / len(lst) 
 
 if __name__ == "__main__":
     sensor()
