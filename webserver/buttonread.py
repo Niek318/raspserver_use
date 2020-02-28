@@ -66,6 +66,9 @@ def read_sensor():
     #     con.commit()
 
 
+def Average(lst):
+    return sum(lst)/len(lst)
+
 if __name__ == "__main__":
     sensor()
     print(sensorids)
@@ -94,5 +97,3 @@ if __name__ == "__main__":
         print(Average(hot_list), Average(cold_list), Average(flow_list))
 
         
-def Average(lst):
-    return sum(lst)/len(lst)
