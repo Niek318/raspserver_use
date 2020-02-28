@@ -49,6 +49,10 @@ def read_sensor():
     cold_temp = min(temperature, temperature2)
     hot_temp = max(temperature, temperature2)
 
+    cold_list.append(cold_temp)
+    hot_list.append(hot_list)
+    flow_list.append(flow)
+
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     # with sql.connect("raspsensors.db") as con:
@@ -66,6 +70,10 @@ if __name__ == "__main__":
     print(sensorids)
     showertime = 0
     while True:
+        hot_list.clear()
+        cold_list.clear()
+        flow_list.clear()
+        
         start = time.time()
         button.wait_for_press()
         button.wait_for_release()
@@ -82,5 +90,6 @@ if __name__ == "__main__":
         end = time.time()
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
+        print(hot_list, cold_list, flow_list)
 
         
