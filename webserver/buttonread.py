@@ -92,7 +92,7 @@ if __name__ == "__main__":
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
         
-        print(mean(hot_list), mean(cold_list), mean(flow_list))
+        print("average values of cold temp: %d, hot temp: %d and flow: %d."% (mean(cold_list), mean(hot_list), mean(flow_list)))
         time.sleep(4)
 
         
