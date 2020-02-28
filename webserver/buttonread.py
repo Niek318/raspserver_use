@@ -7,7 +7,7 @@ import time
 from time import gmtime, strftime
 from gpiozero import Button
 
-button = Button(2) 
+button = Button(17) 
 flow = 5  # temp value
 temp = {}
 sensorids = []
@@ -70,6 +70,7 @@ if __name__ == "__main__":
     t = Timer(10,read_sensor)
     print("thread on")
     button.wait_for_press()
+    button.wait_for_release()
     print("start thread")
 
     time.sleep(5)
@@ -77,7 +78,7 @@ if __name__ == "__main__":
     t.start()
     
     button.wait_for_press()
-    
+    button.wait_for_release()
 
     t.cancel()
     read_sensor()
