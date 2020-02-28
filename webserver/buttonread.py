@@ -91,6 +91,8 @@ if __name__ == "__main__":
         end = time.time()
         elapsed = end - start
         print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(elapsed/60), elapsed%60))
-        print(mean(hot_list), mean(cold_list), mean(flow_list))
+        print(Average(hot_list), Average(cold_list), Average(flow_list))
 
         
+def Average(lst):
+    return sum(lst)/len(lst)
