@@ -29,10 +29,10 @@ def sensor():  # find sensors
 
 def startShower():
     while True:
-        start = time.time()
+        
         button.wait_for_press()
         button.wait_for_release()
-
+        start = time.time()
 
         while not button.is_pressed:
             read_sensor()
