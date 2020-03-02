@@ -42,6 +42,22 @@ def startShower():
         button.wait_for_release()
         end = time.time()
         showertime = end - start
+
+        # try:
+        #     with sql.connect("raspsensors.db") as con:
+        #         cur = con.cursor()
+        #         cur.execute(
+        #             "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
+        #             (cold, hot, flow, name),
+        #         )
+
+        #         con.commit()
+        #         msg = "Record successfully added"
+        # except:
+        #     con.rollback()
+        #     msg = "error in insert operation"
+        #     con.close()
+
         print(
             "stopped measuring, showertime = %d minutes and %d  seconds"
             % (math.floor(showertime / 60), showertime % 60)
