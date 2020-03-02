@@ -9,9 +9,7 @@ import math
 from gpiozero import Button
 
 
-
-
-button = Button(17) 
+button = Button(17)
 flow = 5.0  # temp value
 temp = {}
 sensorids = []
@@ -27,9 +25,10 @@ def sensor():  # find sensors
             sensorids.append(i)
     print(sensorids)
 
+
 def startShower():
     while True:
-        
+
         button.wait_for_press()
         button.wait_for_release()
         start = time.time()
@@ -38,18 +37,22 @@ def startShower():
             read_sensor()
             time.sleep(1)
             type(hot_list[0])
-  
 
-        
         button.wait_for_press()
         button.wait_for_release()
         end = time.time()
         showertime = end - start
-        print("stopped measuring, showertime = %d minutes and %d  seconds" % (math.floor(showertime/60), showertime%60))
-        #values should be float not int
-        print("average values of cold temp: %f, hot temp: %f and flow: %f."% (Average(cold_list), Average(hot_list), Average(flow_list)))
+        print(
+            "stopped measuring, showertime = %d minutes and %d  seconds"
+            % (math.floor(showertime / 60), showertime % 60)
+        )
+        print(
+            "average values of cold temp: %f, hot temp: %f and flow: %f."
+            % (Average(cold_list), Average(hot_list), Average(flow_list))
+        )
         time.sleep(4)
-   
+
+
 def read_sensor():
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
@@ -79,7 +82,6 @@ def read_sensor():
     hot_list.append(hot_temp)
     flow_list.append(flow)
 
-  
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
     # with sql.connect("raspsensors.db") as con:
@@ -92,11 +94,11 @@ def read_sensor():
     #     con.commit()
 
 
-def Average(lst): 
-    return float(sum(lst) / len(lst)) 
+def Average(lst):
+    return float(sum(lst) / len(lst))
+
 
 if __name__ == "__main__":
     sensor()
     startShower()
 
-        
