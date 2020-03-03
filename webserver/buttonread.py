@@ -43,6 +43,9 @@ def startShower():
         end = time.time()
         showertime = end - start
 
+        # amount money saved:
+        moneysaved = showertime
+
         # try:
         #     with sql.connect("raspsensors.db") as con:
         #         cur = con.cursor()
