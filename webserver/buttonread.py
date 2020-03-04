@@ -34,9 +34,8 @@ def startShower():
         start = time.time()
 
         while not button.is_pressed:
-            read_sensor()
+            cold, hot = read_sensor()
             time.sleep(1)
-            type(hot_list[0])
 
         button.wait_for_press()
         button.wait_for_release()
@@ -46,20 +45,20 @@ def startShower():
         # amount money saved:
         moneysaved = showertime
 
-        # try:
-        #     with sql.connect("raspsensors.db") as con:
-        #         cur = con.cursor()
-        #         cur.execute(
-        #             "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-        #             (cold, hot, flow, name),
-        #         )
+        try:
+            with sql.connect("showerdata.db") as con:
+                cur = con.cursor()
+                cur.execute(
+                    "INSERT INTO showerdata (cold_water, hot_water, flow, shower_time, date_time, money_saved) VALUES (?,?,?,?,date('now'),?)",
+                    (cold, hot, flow, showertime, moneysaved),
+                )
 
-        #         con.commit()
-        #         msg = "Record successfully added"
-        # except:
-        #     con.rollback()
-        #     msg = "error in insert operation"
-        #     con.close()
+                con.commit()
+                msg = "Record successfully added"
+        except:
+            con.rollback()
+            msg = "error in insert operation"
+            con.close()
 
         print(
             "stopped measuring, showertime = %d minutes and %d  seconds"
@@ -103,14 +102,7 @@ def read_sensor():
 
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 
-    # with sql.connect("raspsensors.db") as con:
-    #     cur = con.cursor()
-    #     cur.execute(
-    #         "INSERT INTO sensordata (cold_water, hot_water, flow, currentdate, currenttime, name) VALUES (?,?,?,date('now'),time('now'),?)",
-    #         (cold_temp, hot_temp, 1, "testname"),
-    #     )
-
-    #     con.commit()
+    return cold_temp, hot_temp
 
 
 def Average(lst):

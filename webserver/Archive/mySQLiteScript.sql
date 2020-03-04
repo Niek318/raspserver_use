@@ -5,6 +5,7 @@ CREATE TABLE showerdata
     hot_water NUMERIC,
     flow NUMERIC,
     shower_time NUMERIC,
+    date_time NUMERIC,
     money_saved NUMERIC,
     gas_saved NUMERIC
 );

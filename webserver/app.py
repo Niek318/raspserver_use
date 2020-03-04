@@ -43,16 +43,16 @@ def addrec():
 
 @app.route("/list")
 def list():
-    con = sql.connect("raspsensors.db")
+    con = sql.connect("showerdata.db")
     con.row_factory = sql.Row
 
     cur = con.cursor()
-    cur.execute("select * from sensordata")
+    cur.execute("select * from showerdata")
 
     rows = cur.fetchall()
     return render_template("list.html", rows=rows)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=False)
+    app.run()
 
