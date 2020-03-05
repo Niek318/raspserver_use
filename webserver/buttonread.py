@@ -34,7 +34,7 @@ def startShower():
         start = time.time()
 
         while not button.is_pressed:
-            cold, hot = read_sensor()
+            read_sensor()
             time.sleep(1)
 
         button.wait_for_press()
@@ -42,15 +42,28 @@ def startShower():
         end = time.time()
         showertime = end - start
 
-        # amount money saved:
-        moneysaved = showertime
+        gasprijs = 0.6620
+        # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
+        moneysaved = (
+            showertime
+            * flow
+            * 4200
+            * (Average(hot_list) - Average(cold_list))
+            * gasprijs
+        ) / 35170000
 
         try:
             with sql.connect("showerdata.db") as con:
                 cur = con.cursor()
                 cur.execute(
                     "INSERT INTO showerdata (cold_water, hot_water, flow, shower_time, date_time, money_saved) VALUES (?,?,?,?,date('now'),?)",
-                    (cold, hot, flow, showertime, moneysaved),
+                    (
+                        Average(cold_list),
+                        Average(hot_list),
+                        Average(flow_list),
+                        showertime,
+                        moneysaved,
+                    ),
                 )
 
                 con.commit()
@@ -68,6 +81,9 @@ def startShower():
             "average values of cold temp: %f, hot temp: %f and flow: %f."
             % (Average(cold_list), Average(hot_list), Average(flow_list))
         )
+        cold_list.clear()
+        hot_list.clear()
+        flow_list.clear()
         time.sleep(4)
 
 
@@ -101,8 +117,6 @@ def read_sensor():
     flow_list.append(flow)
 
     print(cold_temp, hot_temp, strftime("%Y-%m-%d %H:%M:%S", gmtime()))
-
-    return cold_temp, hot_temp
 
 
 def Average(lst):
