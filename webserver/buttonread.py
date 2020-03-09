@@ -1,8 +1,5 @@
-import sys
 import os
 import sqlite3 as sql
-import threading
-from threading import Timer
 import time
 from time import gmtime, strftime
 import math
@@ -52,6 +49,8 @@ def startShower():
             * gasprijs
         ) / 35170000
 
+
+        #push data to database
         try:
             with sql.connect("showerdata.db") as con:
                 cur = con.cursor()
@@ -73,6 +72,7 @@ def startShower():
             msg = "error in insert operation"
             con.close()
 
+
         print(
             "stopped measuring, showertime = %d minutes and %d  seconds"
             % (math.floor(showertime / 60), showertime % 60)
@@ -81,13 +81,15 @@ def startShower():
             "average values of cold temp: %f, hot temp: %f and flow: %f."
             % (Average(cold_list), Average(hot_list), Average(flow_list))
         )
+
+        #Display average values and clear for new shower measurement.
         cold_list.clear()
         hot_list.clear()
         flow_list.clear()
         time.sleep(4)
 
 
-def read_sensor():
+def read_sensor(): #read values and append to lists.
 
     tfile = open("/sys/bus/w1/devices/" + sensorids[0] + "/w1_slave")
 

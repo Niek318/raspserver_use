@@ -36,13 +36,14 @@ csv = pd.read_csv("database.csv", header=0, index_col=0, parse_dates=True, squee
 csv.plot(x="date_time")
 pyplot.show()
 
-csv["date_time"] = pd.to_datetime(csv["date_time"])
 
-p = figure(x_axis_type="datetime")
-p.line(csv["date_time"], csv["flow"], color="navy", alpha=0.5)
-p.line(csv["date_time"], csv["cold_water"], color="navy", alpha=0.5)
-
-show(p)
+# csv["date_time"] = pd.to_datetime(csv["date_time"])
+#
+# p = figure(x_axis_type="datetime")
+# p.line(csv["date_time"], csv["flow"], color="navy", alpha=0.5)
+# p.line(csv["date_time"], csv["cold_water"], color="navy", alpha=0.5)
+#
+# show(p)
 
 
 print(csv)
