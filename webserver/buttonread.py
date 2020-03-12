@@ -81,9 +81,9 @@ def startShower():
         )
 
         # Display average values and clear for new shower measurement.
-        cold_list.clear()
-        hot_list.clear()
-        flow_list.clear()
+        cold_list = []
+        hot_list = []
+        flow_list = []
         time.sleep(4)
 
 
