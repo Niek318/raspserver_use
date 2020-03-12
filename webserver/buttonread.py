@@ -1,5 +1,6 @@
 import os
 import sqlite3 as sql
+import datetime
 import time
 from time import gmtime, strftime
 import math
@@ -59,7 +60,7 @@ def startShower():
                         Average(cold_list),
                         Average(hot_list),
                         Average(flow_list),
-                        showertime/60,
+                        str(datetime.timedelta(seconds=showertime)),
                         moneysaved,
                     ),
                 )
