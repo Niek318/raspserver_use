@@ -60,7 +60,7 @@ def startShower():
                         Average(cold_list),
                         Average(hot_list),
                         Average(flow_list),
-                        str(datetime.timedelta(seconds=showertime)),
+                        str(datetime.timedelta(seconds=float(showertime))),
                         moneysaved,
                     ),
                 )
