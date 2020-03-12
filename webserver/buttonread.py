@@ -80,10 +80,11 @@ def startShower():
             % (Average(cold_list), Average(hot_list), Average(flow_list))
         )
 
+        cold_list.clear()
+        hot_list.clear()
+        flow_list.clear()
         # Display average values and clear for new shower measurement.
-        cold_list = []
-        hot_list = []
-        flow_list = []
+
         time.sleep(4)
 
 
