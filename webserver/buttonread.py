@@ -7,7 +7,7 @@ from gpiozero import Button
 
 
 button = Button(17)
-flow = 5.0  # temp value
+flow = 0.2  # temp value
 temp = {}
 sensorids = []
 
@@ -37,7 +37,7 @@ def startShower():
         button.wait_for_press()
         button.wait_for_release()
         end = time.time()
-        showertime = end - start
+        showertime = (end - start)
 
         gasprijs = 0.6620
         # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
@@ -59,7 +59,7 @@ def startShower():
                         Average(cold_list),
                         Average(hot_list),
                         Average(flow_list),
-                        showertime,
+                        showertime/60,
                         moneysaved,
                     ),
                 )
