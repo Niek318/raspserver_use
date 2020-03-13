@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import sqlite3 as sql
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -51,6 +52,17 @@ def list():
 
     rows = cur.fetchall()
     return render_template("list.html", rows=rows)
+
+@app.route("/saved")
+def saved():
+    conn = sql.connect(
+    "showerdata.db", isolation_level=None, detect_types=sql.PARSE_COLNAMES)
+    db_df = pd.read_sql_query("SELECT id, hot_water, flow, date_time, cold_water, money_saved FROM showerdata", conn)
+    db_df.to_csv("database.csv", index=False)
+
+    csv = pd.read_csv("database.csv", header=0, index_col=0, parse_dates=True, squeeze=True)
+    saved = csv['money_saved'].sum()
+    return render_template("saved.html", saved=saved)
 
 
 if __name__ == "__main__":

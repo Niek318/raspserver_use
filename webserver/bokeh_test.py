@@ -27,7 +27,7 @@ conn = sqlite3.connect(
     "showerdata.db", isolation_level=None, detect_types=sqlite3.PARSE_COLNAMES
 )
 db_df = pd.read_sql_query(
-    "SELECT id, hot_water, flow, date_time, cold_water FROM showerdata", conn
+    "SELECT id, hot_water, flow, date_time, cold_water, money_saved FROM showerdata", conn
 )
 db_df.to_csv("database.csv", index=False)
 
