@@ -40,7 +40,7 @@ def startShower():
         end = time.time()
         showertime = (end - start)
 
-        gasprijs = 0.6620
+        gasprijs = 0.82 #0.6620
         # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
         moneysaved = (
             showertime
