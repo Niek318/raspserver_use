@@ -1,13 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sqlite3 as sql
 import pandas as pd
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return redirect("/home")
 
 
 @app.route("/enternew")
@@ -53,7 +53,7 @@ def list():
     rows = cur.fetchall()
     return render_template("list.html", rows=rows)
 
-@app.route("/saved")
+@app.route("/home")
 def saved():
     conn = sql.connect(
     "showerdata.db", isolation_level=None, detect_types=sql.PARSE_COLNAMES)
@@ -62,9 +62,9 @@ def saved():
 
     csv = pd.read_csv("database.csv", header=0, index_col=0, parse_dates=True, squeeze=True)
     saved = csv['money_saved'].sum()
-    return render_template("saved.html", saved=saved)
+    return render_template("home.html", totalmoneysaved=saved, totalenergysaved = saved)
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=False)
+    app.run( debug=False) #host='0.0.0.0',
 
