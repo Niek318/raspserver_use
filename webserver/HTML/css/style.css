@@ -1,0 +1,173 @@
+
+body{
+	background-image:url('../images/strient.jpg');
+	background-position: center 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: :16px;
+	font-weight:normal;
+	line-height: 1.6em;
+	margin:0;
+}
+
+
+.container{
+	width:100%;
+	margin:auto;
+}
+
+.box-1{
+	background-color: rgb(33,127,33);
+	color:#ffffff;
+	border:5px solid white;
+	border-width: 3px;
+	border-bottom-width:10px;
+	padding:20px;
+	margin:0px;
+
+}
+
+
+
+.box-1 h1{
+	font-family:Tahoma;
+	font-weight:800;
+	font-style:italic;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-align: center;
+
+}
+.choice{
+		background-color: rgb(33,127,33);
+	color:#ffffff;
+	border:5px solid white;
+	border-width: 3px;
+	border-bottom-width:10px;
+	padding:10px;
+	padding-bottom: 10px;
+	margin:0px;
+
+}
+
+.choice ul{
+	padding:0;
+	list-style: none;
+
+}
+
+.choice li{
+	display:inline;
+}
+
+.choice a{
+	color:#fff;
+	text-decoration: none;
+	font-size: 18px;
+	padding-right:30px;
+}
+
+.box-3{
+		background-color: rgb(33,127,33);
+	color:#ffffff;
+ 	margin:15px;
+	padding:15px;
+	border-radius: 15px;
+	width:80%;
+	box-sizing: border-box;
+	border:3px #ccc solid;
+	text-align: center;
+	 margin:0px auto;
+		margin-bottom: 20px;
+		margin-top:50px;
+
+}
+
+.box-3 table{
+		font-family:Arial;
+	font-weight:100;
+	font-style:italic;
+	text-transform: uppercase;
+	
+	text-align: center;
+}
+
+.box-3 h4{
+		font-family:Tahoma;
+	font-weight:800;
+	font-style:italic;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-align: center;
+}
+
+.box-2{
+	color:#fff;
+	padding:20px;
+	margin:50px;
+}
+
+
+
+.main h2{
+		font-family:Tahoma;
+	font-weight:800;
+	font-style:italic;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-align: center;
+}
+.main{
+	
+		background-color: rgb(33,127,33);
+	color:#ffffff;
+ 	margin:5px;
+	padding:10px;
+	border-radius: 15px;
+	width:50%;
+	box-sizing: border-box;
+	border:3px #ccc solid;
+	text-align: center;
+	 margin:0px auto;
+		margin-bottom: 20px;
+
+}
+.sidebar h3{
+		font-family:Tahoma;
+	font-weight:800;
+	font-style:italic;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	text-align: center;
+}
+.sidebar{
+	
+	border:3px #ccc solid;
+		background-color: rgb(33,127,33);
+	color:#ffffff;
+ 	margin: 5px;
+	padding:20px;
+	border-radius: 15px;
+	width:50%;
+	box-sizing: border-box;
+	text-align: center;
+	margin:0px auto;
+	margin-bottom: 20px;
+}
+
+#main-footer{
+	background:#333;
+	color:#fff;
+	text-align: center;
+	border:5px solid white;
+	border-bottom-width:10px;
+	padding:1px;
+	position: fixed;
+	bottom: 0;
+
+
+@media(max-width: :400px){
+	#container{
+		width:100%
+		float:none;
+	}
+}
