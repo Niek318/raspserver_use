@@ -5,10 +5,11 @@ import time
 from time import gmtime, strftime
 import math
 from gpiozero import Button
+import random
 
 
 button = Button(17)
-flow = 0.2  # temp value
+flow = 0.1  # temp value tussen 6 liter per minuut
 temp = {}
 sensorids = []
 
@@ -39,7 +40,7 @@ def startShower():
         button.wait_for_release()
         end = time.time()
         showertime = (end - start)
-
+        flow = random.randint(0.08,0.12)
         gasprijs = 0.82 #0.6620
         # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
         moneysaved = (
@@ -71,6 +72,7 @@ def startShower():
             con.rollback()
             msg = "error in insert operation"
             con.close()
+            
 
         print(
             "stopped measuring, showertime = %d minutes and %d  seconds"
