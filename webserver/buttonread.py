@@ -40,7 +40,7 @@ def startShower():
         button.wait_for_release()
         end = time.time()
         showertime = (end - start)
-        flow = random.randint(0.08,0.12)
+        flow = random.uniform(0.08,0.12)
         gasprijs = 0.82 #0.6620
         # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
         moneysaved = (
