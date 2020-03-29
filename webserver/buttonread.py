@@ -41,6 +41,7 @@ def startShower():
         end = time.time()
         showertime = (end - start)
         flow = random.uniform(0.08,0.12)
+        print(flow)
         gasprijs = 0.82 #0.6620
         # amount money saved: showertime in seconden, flow in liter/seconde of kilo/seconde,
         moneysaved = (
@@ -60,7 +61,7 @@ def startShower():
                     (
                         Average(cold_list),
                         Average(hot_list),
-                        Average(flow_list),
+                        flow,
                         str(datetime.timedelta(seconds=int(showertime))),
                         moneysaved,
                     ),
