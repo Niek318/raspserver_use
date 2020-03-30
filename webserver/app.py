@@ -62,9 +62,9 @@ def saved():
 
     csv = pd.read_csv("database.csv", header=0, index_col=0, parse_dates=True, squeeze=True)
     saved = csv['money_saved'].sum()
-    return render_template("home.html", totalmoneysaved=saved, totalenergysaved = saved*(35170000/0.82))
+    return render_template("home.html", totalmoneysaved=round(saved,4), totalenergysaved = round((saved*(35170000/0.82))/100000))
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0',debug=False) #host='0.0.0.0',
+    app.run(host='0.0.0.0', debug=False) #host='0.0.0.0',
 
